@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include layouts/header.ejs %>
+</head>
+
+<body>
+  <!-- Loader starts-->
+  <% include layouts/loader.ejs %>
+    <!-- Loader ends-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+      <!-- Page Header Start-->
+      <div class="page-header">
+        <% include layouts/nav.ejs %>
+      </div>
+      <!-- Page Header Ends -->
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+        <% include layouts/sidebar.ejs %>
+          <!-- Page Sidebar Ends-->
+          <div class="page-body">
+            <div class="container-fluid">
+              <div class="page-title">
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <h3>Tổng quan</h3>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"> <a class="home-item" href="index.html"><i
+                            data-feather="home"></i></a></li>
+                      <li class="breadcrumb-item"> Trang chủ</li>
+                      <li class="breadcrumb-item active"> tổng quan</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid default-dash">
+              <div class="row">
+                <div class="col-xl-6 col-md-6 dash-35 dash-xl-50">
+                  <div class="card ongoing-project">
+                    <div class="card-header card-no-border">
+                      <div class="media media-dashboard">
+                        <div class="media-body">
+                          <h5 class="mb-0">Tiến độ công việc</h5>
+                        </div>
+                        <div class="icon-box onhover-dropdown"><i data-feather="more-horizontal"></i>
+                          <div class="icon-box-show onhover-show-div">
+                            <ul>
+                              <li> 
+                                <a>Done</a>
+                              </li>
+                              <li> 
+                                <a>Pending</a>
+                              </li>
+                              <li> 
+                                <a>Rejected</a>
+                              </li>
+                              <li> 
+                                <a>In Progress</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body pt-0">
+                      <div class="table-responsive custom-scrollbar">
+                        <table class="table table-bordernone">
+                          <thead>
+                            <tr>
+                              <th><span>Tên </span></th>
+                              <th><span>Thời gian</span></th>
+                              <th><span>Công việc </span></th>
+                              <th><span>Trạng thái </span></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div class="media">
+                                  <div class="square-box me-2"><img class="img-fluid b-r-5"
+                                      src="../assets/images/avtar/boy.png" alt=""></div>
+                                  <div class="media-body ps-2">
+                                    <div class="avatar-details"><a href="product-page.html">
+                                        <h6>Gary</h6>
+                                      </a><span> UK Desig Team</span></div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="img-content-box">
+                                <h6>12 May 2020</h6><span>In 6 Days</span>
+                              </td>
+                              <td>
+                                <h6>Product Design</h6><span>$7,800</span>
+                              </td>
+                              <td>
+                                <div class="badge badge-light-primary">Hoàn thành</div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-md-6 dash-35 dash-xl-50">
+                  <div class="card ongoing-project">
+                    <div class="card-header card-no-border">
+                      <div class="media media-dashboard">
+                        <div class="media-body">
+                          <h5 class="mb-0">Tiến độ dự án</h5>
+                        </div>
+                        <div class="icon-box onhover-dropdown"><i data-feather="more-horizontal"></i>
+                          <div class="icon-box-show onhover-show-div">
+                            <ul>
+                              <li> 
+                                <a>Done</a>
+                              </li>
+                              <li> 
+                                <a>Pending</a>
+                              </li>
+                              <li> 
+                                <a>Rejected</a>
+                              </li>
+                              <li> 
+                                <a>In Progress</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body pt-0">
+                      <div class="table-responsive custom-scrollbar">
+                        <table class="table table-bordernone">
+                          <thead>
+                            <tr>
+                              <th><span>Tên </span></th>
+                              <th><span>Thời gian</span></th>
+                              <th><span>Dự án </span></th>
+                              <th><span>Trạng thái </span></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div class="media">
+                                  <div class="square-box me-2"><img class="img-fluid b-r-5"
+                                      src="../assets/images/avtar/boy.png" alt=""></div>
+                                  <div class="media-body ps-2">
+                                    <div class="avatar-details"><a href="product-page.html">
+                                        <h6>Gary</h6>
+                                      </a><span> UK Desig Team</span></div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="img-content-box">
+                                <h6>12 May 2020</h6><span>In 6 Days</span>
+                              </td>
+                              <td>
+                                <h6>Product Design</h6><span>$7,800</span>
+                              </td>
+                              <td>
+                                <div class="badge badge-light-primary">Hoàn thành</div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="media">
+                                  <div class="square-box me-2"><img class="img-fluid b-r-5"
+                                      src="../assets/images/avtar/girl.png" alt=""></div>
+                                  <div class="media-body ps-2">
+                                    <div class="avatar-details"><a href="product-page.html">
+                                        <h6>Ralph Waters</h6>
+                                      </a><span> UX Ninjas</span></div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="img-content-box">
+                                <h6>06 May 2020</h6><span>Overdue</span>
+                              </td>
+                              <td>
+                                <h6>Concept Design</h6><span>$670</span>
+                              </td>
+                              <td>
+                                <div class="badge badge-light-secondary">Chưa thực hiện</div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="media">
+                                  <div class="square-box me-2"><img class="img-fluid b-r-5"
+                                      src="../assets/images/avtar/man.png" alt=""></div>
+                                  <div class="media-body ps-2">
+                                    <div class="avatar-details"><a href="product-page.html">
+                                        <h6>Edwin Day</h6>
+                                      </a><span> SF Dev Team</span></div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="img-content-box">
+                                <h6>28 Sep 2020</h6><span>in 4 Months</span>
+                              </td>
+                              <td>---------
+                                <h6>UX Consulting</h6><span>$7,889</span>
+                              </td>
+                              <td>
+                                <div class="badge badge-light-danger">Loại bỏ</div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="media">
+                                  <div class="square-box me-2"><img class="img-fluid b-r-5"
+                                      src="../assets/images/avtar/woman.png" alt=""></div>
+                                  <div class="media-body ps-2">
+                                    <div class="avatar-details"><a href="product-page.html">
+                                        <h6>Gary</h6>
+                                      </a><span> UK Desig Team</span></div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="img-content-box">
+                                <h6>12 May 2020</h6><span>In 6 Days</span>
+                              </td>
+                              <td>
+                                <h6>Product Design</h6><span>Toyota</span>
+                              </td>
+                              <td>
+                                <div class="badge badge-light-info">Đang thực hiện</div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- latest jquery-->
+    <% include layouts/footer.ejs %>
+</body>
+
+<!-- Mirrored from admin.pixelstrap.com/zeta/theme/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 03:46:19 GMT -->
+
+</html>
