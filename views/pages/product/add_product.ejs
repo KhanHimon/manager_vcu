@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../../layouts/header.ejs %>
+</head>
+
+<body>
+    <!-- Loader starts-->
+    <% include ../../layouts/loader.ejs %>
+        <!-- Loader ends-->
+        <!-- tap on top starts-->
+        <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+        <!-- tap on tap ends-->
+        <!-- page-wrapper Start-->
+        <div class="page-wrapper compact-wrapper" id="pageWrapper">
+            <!-- Page Header Start-->
+            <div class="page-header">
+                <% include ../../layouts/nav.ejs %>
+            </div>
+            <!-- Page Header Ends -->
+            <!-- Page Body Start-->
+            <div class="page-body-wrapper">
+                <!-- Page Sidebar Start-->
+                <% include ../../layouts/sidebar.ejs %>
+                    <!-- Page Sidebar Ends-->
+                    <div class="page-body">
+                        <div class="container-fluid">
+                            <div class="page-title">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <h3>Thêm mới sản phẩm</h3>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html"> <svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-home">
+                                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                                    </svg></a></li>
+                                            <li class="breadcrumb-item">Apps</li>
+                                            <li class="breadcrumb-item active">Project Create </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Container-fluid starts-->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form theme-form projectcreate">
+                                                <form action="/product/them-moi-san-pham" method="post">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="mb-3">
+                                                                <label>Tên sản phẩm</label>
+                                                                <input id="product_name" name="product_name" class="form-control" type="text" placeholder="Tên sản phẩm *">
+                                                            </div>
+                                                        </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="mb-3">
+                                                                    <label>Giá nhập</label>
+                                                                    <input id="entry_price" name="entry_price" class="form-control" type="number" placeholder="Giá nhập của sản phẩm">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                                <label>Giá bán</label>
+                                                                <input id="price" name="price" class="form-control" type="number" placeholder="Giá bán của sản phẩm">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                                <label>Số lượng</label>
+                                                                <input id="quantity" name="quantity" class="form-control" type="number" placeholder="Số lượng sản phẩm">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                                <label>SKU</label>
+                                                                <input id="product_sku" name="product_sku" class="form-control" type="text" placeholder="Mã SKU của sản phẩm">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                            <label>Loại sản phẩm</label>
+                                                            <select id="product_type" name="product_type" class="form-select">
+                                                                <option>Chọn sản phẩm</option>
+                                                                <option value="2 Buồng">Tủ 2 buồng</option>
+                                                                <option value="3 Buồng">Tủ 3 buồng</option>
+                                                            </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                            <label>Kích thước sản phẩm</label>
+                                                            <select id="product_size" name="product_size" class="form-select">
+                                                                <option>Chọn sản phẩm</option>
+                                                                <option value="To">To</option>
+                                                                <option value="Trung bình">Trung bình</option>
+                                                                <option value="Nhỏ">Nhỏ</option>
+                                                            </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                            <label>Màu sản phẩm</label>
+                                                            <select id="product_color" name="product_color" class="form-select">
+                                                                <option>Chọn màu</option>
+                                                                <option value="Đơn màu">Đơn màu</option>
+                                                                <option value="Đa màu">Đa màu</option>
+                                                            </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="mb-3">
+                                                                <label>Mô tả sản phẩm</label>
+                                                                <textarea id="product_description" name="product_description" class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-end">
+                                                                <button class="btn btn-secondary me-3" href="#">Thêm mới</button>
+                                                                <a class="btn btn-danger" href="#">Hủy bỏ</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Container-fluid Ends-->
+                    </div>
+            </div>
+        </div>
+        <!-- latest jquery-->
+        <% include ../../layouts/footer.ejs %>
+</body>
+
+<!-- Mirrored from admin.pixelstrap.com/zeta/theme/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 03:46:19 GMT -->
+
+</html>

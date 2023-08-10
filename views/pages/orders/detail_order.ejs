@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../../layouts/header.ejs %>
+</head>
+
+<body>
+    <!-- Loader starts-->
+    <% include ../../layouts/loader.ejs %>
+        <!-- Loader ends-->
+        <!-- tap on top starts-->
+        <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+        <!-- tap on tap ends-->
+        <!-- page-wrapper Start-->
+        <div class="page-wrapper compact-wrapper" id="pageWrapper">
+            <!-- Page Header Start-->
+            <div class="page-header">
+                <% include ../../layouts/nav.ejs %>
+            </div>
+            <!-- Page Header Ends -->
+            <!-- Page Body Start-->
+            <div class="page-body-wrapper">
+                <!-- Page Sidebar Start-->
+                <% include ../../layouts/sidebar.ejs %>
+                    <!-- Page Sidebar Ends-->
+                    <div class="page-body">
+                        <div class="container-fluid">
+                            <div class="page-title">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <h3>Chi tiết đơn hàng</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Container-fluid starts-->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <form action="/order/them-moi-don-hang" method="post">
+                                            <div class="card-body">
+                                                <div class="form theme-form projectcreate">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <label>Tên khách hàng</label>
+                                                                <input disabled class="form-control" id="name_user_order" name="name_user_order" type="text" value="<%= orders.name_user_order %>">
+                                                            </div>
+                                                        </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="mb-3">
+                                                                    <label>Số điện thoại</label>
+                                                                    <input disabled class="form-control" id="order_number_phone" name="order_number_phone" type="text" value="<%= orders.order_number_phone %>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="mb-3">
+                                                                    <label>Địa chỉ</label>
+                                                                    <input disabled class="form-control" id="order_address" name="order_address" type="text" value="<%= orders.order_address %>">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <label>Tên sản phẩm</label>
+                                                                <input disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="text" value="<%= orders.order_product.product_name %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                                <label>Loại sản phẩm</label>
+                                                                <input disabled class="form-control" id="order_prepayment" name="order_prepayment" type="text" value="<%= orders.order_product.product_type %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label>Màu sản phẩm</label>
+                                                                <input disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="text" value="<%= orders.order_product.product_color %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label>Kích thước sản phẩm</label>
+                                                                <input disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="text" value="<%= orders.order_product.product_size %>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                                <label>Số lượng</label>
+                                                                <input disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="text" value="<%= orders.order_product_quantity %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <label>Giá trị đơn hàng</label>
+                                                                <input disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="text" value="đ <%= orders.order_value.toLocaleString(); %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label>Đã thanh toán</label>
+                                                                <input disabled class="form-control" id="order_prepayment" name="order_prepayment" type="text" value="đ <%= orders.order_prepayment.toLocaleString(); %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label>Chưa thanh toán</label>
+                                                                <input disabled class="form-control" id="order_remaining" name="order_remaining" type="text" value="đ <%= orders.order_remaining.toLocaleString(); %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <div class="mb-3">
+                                                                <label>Ngày lên đơn</label>
+                                                                <input disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="date" value="<%= (orders.create_date).getFullYear() %>-<%= String(orders.create_date.getMonth() + 1).padStart(2, '0') %>-<%= String(orders.create_date.getDate()).padStart(2, '0') %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <div class="mb-3">
+                                                                <label>Lợi nhuận đơn hàng</label>
+                                                                <input disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="text" value="đ <%= orders.order_price_profit.toLocaleString(); %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="mb-3">
+                                                                <label>Ghi chú*</label>
+                                                                <textarea disabled class="form-control" id="order_product_quantity" name="order_product_quantity" type="text"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-end">
+                                                                <a class="btn btn-danger" href="/danh-sach-don-hang/<%= user._id %>">Quay lại danh sách</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Container-fluid Ends-->
+                    </div>
+            </div>
+        </div>
+        <!-- latest jquery-->
+        <% include ../../layouts/footer.ejs %>
+</body>
+
+<!-- Mirrored from admin.pixelstrap.com/zeta/theme/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 03:46:19 GMT -->
+
+</html>

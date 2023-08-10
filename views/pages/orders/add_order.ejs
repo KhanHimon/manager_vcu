@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../../layouts/header.ejs %>
+</head>
+
+<body>
+    <!-- Loader starts-->
+    <% include ../../layouts/loader.ejs %>
+        <!-- Loader ends-->
+        <!-- tap on top starts-->
+        <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+        <!-- tap on tap ends-->
+        <!-- page-wrapper Start-->
+        <div class="page-wrapper compact-wrapper" id="pageWrapper">
+            <!-- Page Header Start-->
+            <div class="page-header">
+                <% include ../../layouts/nav.ejs %>
+            </div>
+            <!-- Page Header Ends -->
+            <!-- Page Body Start-->
+            <div class="page-body-wrapper">
+                <!-- Page Sidebar Start-->
+                <% include ../../layouts/sidebar.ejs %>
+                    <!-- Page Sidebar Ends-->
+                    <div class="page-body">
+                        <div class="container-fluid">
+                            <div class="page-title">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <h3>Thêm mới đơn hàng</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Container-fluid starts-->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <form action="/order/them-moi-don-hang" method="post">
+                                            <div class="card-body">
+                                                <div class="form theme-form projectcreate">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <label>Tên khách hàng</label>
+                                                                <input class="form-control" id="name_user_order" name="name_user_order" type="text" placeholder="Tên khách hàng *">
+                                                            </div>
+                                                        </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="mb-3">
+                                                                    <label>Số điện thoại</label>
+                                                                    <input class="form-control" id="order_number_phone" name="order_number_phone" type="text">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="mb-3">
+                                                                    <label>Địa chỉ</label>
+                                                                    <input class="form-control" id="order_address" name="order_address" type="text" placeholder="Số điện thoại">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                            <label>Sản phẩm</label>
+                                                            <select id="order_product" name="order_product" class="form-select">
+                                                                <option>Chọn sản phẩm</option>
+                                                                <% products.forEach(function(product){ %>
+                                                                <option value="<%= product._id %>">
+                                                                    <%= product.product_name %> - <%= product.product_type %> - <%= product.product_size %> - <%= product.product_color %>
+                                                                </option>
+                                                                <% }); %>
+                                                            </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <div class="mb-3">
+                                                                <label>Số tiền đã thanh toán</label>
+                                                                <input class="form-control" id="order_prepayment" name="order_prepayment" type="number" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                            <div class="mb-3">
+                                                                <label>Số lượng</label>
+                                                                <input class="form-control" id="order_product_quantity" name="order_product_quantity" type="number" placeholder="Số lượng sản phẩm">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label>Giá cấu thành sản phẩm</label>
+                                                            <input id="order_entry_price" name="order_entry_price" type="number" class="form-control"/>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label>Giá bán</label>
+                                                            <input id="order_unit_price" name="order_unit_price" type="number" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-end">
+                                                                <button class="btn btn-secondary me-3" href="#">Thêm mới</button>
+                                                                <a class="btn btn-danger" href="#">Hủy bỏ</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Container-fluid Ends-->
+                    </div>
+            </div>
+        </div>
+        <!-- latest jquery-->
+        <% include ../../layouts/footer.ejs %>
+</body>
+
+<!-- Mirrored from admin.pixelstrap.com/zeta/theme/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 03:46:19 GMT -->
+
+</html>

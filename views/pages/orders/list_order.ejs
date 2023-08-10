@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../../layouts/header.ejs %>
+</head>
+
+<body>
+    <!-- Loader starts-->
+    <% include ../../layouts/loader.ejs %>
+        <!-- Loader ends-->
+        <!-- tap on top starts-->
+        <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+        <!-- tap on tap ends-->
+        <!-- page-wrapper Start-->
+        <div class="page-wrapper compact-wrapper" id="pageWrapper">
+            <!-- Page Header Start-->
+            <div class="page-header">
+                <% include ../../layouts/nav.ejs %>
+            </div>
+            <!-- Page Header Ends -->
+            <!-- Page Body Start-->
+            <div class="page-body-wrapper">
+                <!-- Page Sidebar Start-->
+                <% include ../../layouts/sidebar.ejs %>
+                    <!-- Page Sidebar Ends-->
+                    <div class="page-body">
+                        <div class="container-fluid">
+                            <div class="page-title">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <h3>Danh sách sản phẩm</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Container-fluid starts-->
+                        <div class="container-fluid list-products">
+                            <div class="row">
+                                <!-- Individual column searching (text inputs) Starts-->
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="table-responsive product-table">
+                                                <div id="basic-1_wrapper" class="dataTables_wrapper no-footer">
+                                                    <table class="display dataTable no-footer" id="basic-1" role="grid"
+                                                        aria-describedby="basic-1_info">
+                                                        <thead>
+                                                            <tr role="row">
+                                                                <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1">Thời gian</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1">Khách hàng</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1">Số điện thoại</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1">Địa chỉ</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1">Số lượng</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1">Tổng số tiền</th>
+                                                                <th> Chức năng </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% orders.forEach(function(order){ %>
+                                                            <tr role="row" class="odd">
+                                                                <td>Ngày <%= String(order.create_date.getDate()).padStart(2, '0') %>/<%= String(order.create_date.getMonth() + 1).padStart(2, '0') %>/<%= (order.create_date).getFullYear() %></td>
+                                                                <td><%= order.name_user_order %></td>
+                                                                <td><%= order.order_number_phone %></td>
+                                                                <td><%= order.order_address %></td>
+                                                                <td><%= order.order_product_quantity %> Thùng</td>
+                                                                <td>đ <%= order.order_value.toLocaleString(); %></td>
+                                                                <td>
+                                                                    <a style="padding: 3px; width: 80px; font-size: 13px;" href="/chi-tiet-don-hang/<%= order._id %>&<%= user._id %>" class="btn btn-success btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="">Chi tiết</a>
+                                                                    <button class="btn btn-primary btn-xs" data-bs-toggle="modal" type="button" data-original-title="btn btn-danger btn-xs" data-bs-target="#editModal_<%= order._id %>" title="">Sửa</button>
+                                                                    <div class="modal fade" id="editModal_<%= order._id %>" tabindex="-1" aria-labelledby="editModal" style="display: none;" aria-hidden="true">
+                                                                        <form action="/order/sua-don-hang/<%= order._id %>" method="post">
+                                                                            <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h4>Chỉnh sửa đơn hàng - <%= order.name_user_order %></h4>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="form theme-form projectcreate">
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-6">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>Tên khách hàng</label>
+                                                                                                    <input class="form-control" id="name_user_order" name="name_user_order" type="text" value="<%= order.name_user_order %>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                                <div class="col-sm-6">
+                                                                                                    <div class="mb-3">
+                                                                                                        <label>Số điện thoại</label>
+                                                                                                        <input class="form-control" id="order_number_phone" name="order_number_phone" type="text" value="<%= order.order_number_phone %>">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="mb-3">
+                                                                                                        <label>Địa chỉ</label>
+                                                                                                        <input class="form-control" id="order_address" name="order_address" type="text" value="<%= order.order_address %>">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-8">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>Sản phẩm</label>
+                                                                                                    <select style="height: 45px;;" id="order_product" name="order_product" class="form-select">
+                                                                                                        <option selected value="<%= order.order_product._id %>"><%= order.order_product.product_name %> - <%= order.order_product.product_type %> - <%= order.order_product.product_size %> - <%= order.order_product.product_color %></option>
+                                                                                                        <option>Chọn sản phẩm</option>
+                                                                                                        <% products.forEach(function(product){ %>
+                                                                                                        <option value="<%= product._id %>">
+                                                                                                            <%= product.product_name %> - <%= product.product_type %> - <%= product.product_size %> - <%= product.product_color %>
+                                                                                                        </option>
+                                                                                                        <% }); %>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-sm-4">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>SL (Thùng)</label>
+                                                                                                    <input id="order_product_quantity" name="order_product_quantity" class="form-control" type="number" value="<%= order.order_product_quantity %>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-3">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>Đã thanh toán</label>
+                                                                                                    <input class="form-control" id="order_prepayment" name="order_prepayment" type="number" value="<%= order.order_prepayment %>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-sm-5">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>Giá cấu thành</label>
+                                                                                                    <input disabled class="form-control" id="order_entry_price" name="order_entry_price" type="number" value="<%= order.order_entry_price %>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-sm-4">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>Giá bán</label>
+                                                                                                    <input class="form-control" id="order_unit_price" name="order_unit_price" type="number" value="<%= order.order_unit_price %>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-sm-5">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>Ngày lên đơn</label>
+                                                                                                    <input class="form-control" id="" name="" type="date" value="<%= (order.create_date).getFullYear() %>-<%= String(order.create_date.getMonth() + 1).padStart(2, '0') %>-<%= String(order.create_date.getDate()).padStart(2, '0') %>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-sm-12">
+                                                                                                <div class="mb-3">
+                                                                                                    <label>Ghi chú*</label>
+                                                                                                    <textarea class="form-control" id="" name="" type="text"></textarea>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                <button class="btn btn-primary" type="button" data-bs-dismiss="modal" data-bs-original-title="" title="">Hủy</button>
+                                                                                <button class="btn btn-secondary" type="submit" data-bs-original-title="" title="">Lưu</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <button class="btn btn-danger btn-xs"  data-bs-toggle="modal" type="button" data-original-title="btn btn-danger btn-xs"  data-bs-target="#deleteModel" data-bs-original-title="" title="" title="">Xóa</button>
+                                                                    <div class="modal fade" id="deleteModel" tabindex="-1" aria-labelledby="deleteModelLabel" style="display: none;" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                          <div class="modal-content">
+                                                                            <div class="modal-body">Bạn có chắc là muốn xóa đơn hàng này không?</div>
+                                                                            <div class="modal-footer">
+                                                                              <button class="btn btn-primary" type="button" data-bs-dismiss="modal" data-bs-original-title="" title="">Hủy</button>
+                                                                              <form action="/order/xoa-don-hang/<%= order._id %>" method="post">
+                                                                                <button class="btn btn-secondary" type="submit" data-bs-original-title="" title="">Xóa</button>
+                                                                              </form>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <% }); %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Individual column searching (text inputs) Ends-->
+                        <!-- Container-fluid Ends-->
+                    </div>
+            </div>
+        </div>
+        <!-- latest jquery-->
+        <% include ../../layouts/footer.ejs %>
+</body>
+
+<!-- Mirrored from admin.pixelstrap.com/zeta/theme/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 03:46:19 GMT -->
+
+</html>
